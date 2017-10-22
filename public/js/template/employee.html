@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Employee</title>
 </head>
+
 <body>
     <input class="Employee-Search-Project" placeholder="Search by project" ng-model="search">
     <button type="button" class="btn btn-primary">Search</button>
     <hr>
+    <div class="myProjects">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+        <div class="col-sm-3" ng-repeat="project in projects">Projects in progres</div>
+    </div>
 
-    <div class="projects-in-progres">Doing now</div>
 </body>
-</html>
 
+</html>
