@@ -1,4 +1,3 @@
-app.controller('mainCtrl',function($scope){
-
+app.controller('mainCtrl',function($scope,mainFact){
 
 })
