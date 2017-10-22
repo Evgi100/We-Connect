@@ -4,18 +4,19 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     $stateProvider
         .state('home', {
             url: '/home',
+            templateUrl: 'home.html'
         })
         .state('employers', {
             url: '/employers',
-            templateUrl: 'partial-employers.html',
-            controller : "employersCtrl"
+            templateUrl: 'employers.html',
+            // controller : "employersCtrl"
         })
-        // .state('employees', {
-        //     url: '/employees',
-        //     templateUrl: '/templates/employees.html',
-        //     controller: 'employeeController',
-        //     params: { employParams: null }
-        // })
+        .state('employees', {
+            url: '/employees',
+            templateUrl: '/templates/employees.html',
+            controller: 'employeeController',
+            params: { employParams: null }
+        })
         // .state('employee', {
         //     url: '/employee/:id',
         //     templateUrl: '/templates/employee.html',
