@@ -9,8 +9,8 @@ mongoose.connect('mongodb://localhost/weconnect', function () {
 });
 
 const Employee = require('./models/employees.js');
-const Employer = require('./models/employer.js');
-const Project = require('./models/projects.js');
+const Employer = require('./models/employers.js');
+const Project = require('./models/projects.js').Project;
 
 app.use(express.static('public'));
 app.use(express.static('node_modules'));

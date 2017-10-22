@@ -7,7 +7,7 @@ const imageSchema = new Schema({
     desc: String
 });
 
-const projectSchema = new Schema({
+ const projectSchema = new Schema({
     title: String,
     type: String,
     images: [imageSchema],
@@ -20,4 +20,7 @@ const projectSchema = new Schema({
 
 const Project = mongoose.model('Project', projectSchema);
 
-module.exports = Project;
+module.exports = {
+    Project:Project,
+    projectSchema:projectSchema
+}

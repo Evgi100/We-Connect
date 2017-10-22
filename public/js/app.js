@@ -1,10 +1,10 @@
-var app = angular.module('weConnectApp', ['ui-router']);
+var app = angular.module('weConnectApp', ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
-            controller: 'mainController',
+            controller: 'mainCtrl',
             templateUrl: '/templates/home.html'
         })
         .state('employees', {
