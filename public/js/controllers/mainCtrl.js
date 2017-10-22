@@ -1,3 +1,3 @@
-app.controller('mainCtrl',function($scope,mainFact){
+app.controller('mainCtrl',function($scope){
 
 })

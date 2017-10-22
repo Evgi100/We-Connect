@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="font-awesome\css\font-awesome.css">
 
+
 </head>
 
 <body ng-app="weConnectApp">
@@ -53,11 +54,27 @@
                     <div class="navbar-header">
 
                         <ul>
+
                             <li>Find new talent</li>
                             <li>Get free projects for free</li>
+
+                            <li>
+                                <h3 class="title">We Connect</h3>
+                            </li>
+                            <li>
+                                <a class="navbar-employer" ui-sref="employers">Employer LogIn</a>
+                                <i class="fa fa-building icon" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a class="navbar-employee" ui-sref="employees">Employee LogIn</a>
+                                <i class="fa fa-briefcase icon" aria-hidden="true"></i>
+                            </li>
+
+
                         </ul>
                         <button type="button" class="btn btn-default navbar-btn">Employers Sign Up</button>
                     </div>
+
 
 
                     <div class="employees">
@@ -69,11 +86,33 @@
                         </ul>
                         <button type="button" class="btn btn-default navbar-btn">Employees Sign Up</button>
                     </div>
+
+
+            <div class="container">
+                <div ui-view></div>
+            </div>
+
+            <hr>
+            <h2 class="row">How it works ?</h2>
+            <hr>
+
+
+            <div class="two-side row">
+                <div class="employers">
+                    <h2>Employers</h2>
+                    <hr>
+                    <ul>
+                        <li>Find new talent</li>
+                        <li>Get free projects for free</li>
+                    </ul>
+                    <button type="button" class="btn btn-default navbar-btn">Employers Sign Up</button>
+
                 </div>
 
                 
                     <div ui-view></div>
                 
+
 
             </div>
 
@@ -88,9 +127,20 @@
 
 
 
+
+                <div class="employees">
+                    <h2>Employee</h2>
+                    <hr>
+                    <ul>
+                        <li>Gain real world experience</li>
+                        <li>Get hired for full/part time positions</li>
+                    </ul>
+                    <button type="button" class="btn btn-default navbar-btn">Employees Sign Up</button>
+                </div>
+            </div>
+
+
             <script src="angular\angular.js"></script>
-            
-            <script src="js\app.js"></script>
             <script src="@uirouter\angularjs\release\angular-ui-router.js"></script>
 
             
@@ -103,6 +153,9 @@
 
 
             <script src="jquery\dist\jquery.js"></script>
+
+            <script src="js\app.js"></script>
+            <script src="js\controllers\mainCtrl.js"></script>          
             <script src="jquery\dist\jquery.js"></script>
             <script src="bootstrap\dist\js\bootstrap.js"></script>
 
