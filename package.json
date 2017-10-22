@@ -1,7 +1,6 @@
 {
   "name": "weconnect",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,5 +16,14 @@
     "express": "^4.16.2",
     "jquery": "^3.2.1",
     "mongoose": "^4.12.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olinsoffer/weconnect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/olinsoffer/weconnect/issues"
+  },
+  "homepage": "https://github.com/olinsoffer/weconnect#readme",
+  "description": ""
 }
