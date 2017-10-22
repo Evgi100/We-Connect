@@ -76,3 +76,21 @@ text-align: center}
     border-width: 5px;
 }
 
+.project-img{
+    width: 100%;
+    height: 200px;  
+}
+
+.skils{
+    width: auto;
+    display:inline-block;
+    padding-right: 8%;
+    background: lightgrey;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.skils:hover {
+    color:darkgreen;
+   
+}

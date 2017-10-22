@@ -4,17 +4,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'home.html'
+            templateUrl: 'templates/home.html'
         })
         .state('employers', {
             url: '/employers',
-            templateUrl: 'employers.html',
+            templateUrl: 'templates/employers.html',
             // controller : "employersCtrl"
         })
         .state('employees', {
             url: '/employees',
-            templateUrl: '/templates/employees.html',
-            controller: 'employeeController',
+            templateUrl: 'templates/employee.html',
+            controller: 'employeeCtrl',
             params: { employParams: null }
         })
         // .state('employee', {

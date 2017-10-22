@@ -26,9 +26,9 @@ app.use(bodyParser.urlencoded({
 
 
 //////////////////////////////ROUTES//////////////////////////////////////////
-app.all('*', function (req, res) {
-    res.sendFile(__dirname + '/public/index.html');
-});
+// app.all('*', function (req, res) {
+//     res.sendFile(__dirname + '/public/index.html');
+// });
 ///////////////////EMPLOYEE ROUTES///////////////////
 // Fetches all employees from the database
 app.get('/employees', function (req, res, next) {

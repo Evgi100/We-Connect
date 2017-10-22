@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employee</title>
+</head>
+
+<body>
+    <div class="row">
+        <h1>All Projects</h1>
+
+        <input type="text" ng-model="searchProject" placeholder="Search By Project" />
+        <br>
+        <a class="navbar-employer" ui-sref="home">HOME PAGE</a>
+        <br>
+        <br>
+        <hr>
+        <div class="all-projects">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 project" ng-repeat="project in projects track by $index">
+                        <img class="project-img" src="{{project.img}}" />
+                        <h3>{{project.title}}
+                            <span>{{project.type}}</span>
+                        </h3> <br>
+                        <span>{{project.description}}</span> <br>
+                      <span>skills:</span>  <button class="skils" ng-repeat="skill in project.skils">{{skill}}</button>
+                        <br>
+                        <button type="button" ng-click="addMovies(movie)">Add Me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
