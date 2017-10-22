@@ -46,10 +46,10 @@ app.delete('/employee/:employeeId', function (req, res, next) {
 // Edits an employee in the database
 app.put('/employee/:employeeId/update', function (req, res, next) {
     let employeeId = req.params.employeeId,
-        param = req.body.param,
+        key = req.body.key,
         val = req.body.val;
     var updateObject = {};
-    updateObject[param] = val;
+    updateObject[key] = val;
 
     Employee.findByIdAndUpdate(employeeId, updateObject, {
         new: true
@@ -99,10 +99,10 @@ app.delete('/employer/:employerId', function (req, res, next) {
 // Edits an employer in the database
 app.put('/employer/:employerId/update', function (req, res, next) {
     let employerId = req.params.employerId,
-        param = req.body.param,
+        key = req.body.key,
         val = req.body.val;
     var updateObject = {};
-    updateObject[param] = val;
+    updateObject[key] = val;
 
     Employer.findByIdAndUpdate(employerId, updateObject, {
         new: true
@@ -147,10 +147,10 @@ app.delete('/project/:projectId', function (req, res, next) {
 // Edits an project in the database
 app.put('/project/:projectId/update', function (req, res, next) {
     let projectId = req.params.projectId,
-        param = req.body.param,
+        key = req.body.key,
         val = req.body.val;
     var updateObject = {};
-    updateObject[param] = val;
+    updateObject[key] = val;
 
     Project.findByIdAndUpdate(projectId, updateObject, {
         new: true

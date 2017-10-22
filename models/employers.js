@@ -18,7 +18,6 @@ const employerSchema = new Schema({
     // currentProjects: [String],
     // finishedProjects: [String],
     allProjects: [projectSchema],
-    isAvail : Boolean,
     dateJoined : Date,
 });
 
