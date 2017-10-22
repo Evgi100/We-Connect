@@ -4,8 +4,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     $stateProvider
         .state('home', {
             url: '/home',
-            controller: 'mainCtrl',
-            templateUrl: '/templates/home.html'
+        })
+        .state('employers', {
+            url: '/employers',
+            templateUrl: 'partial-employers.html',
+            controller : "employersCtrl"
         })
         .state('employees', {
             url: '/employees',
@@ -18,12 +21,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: '/templates/employee.html',
             controller: 'employeeController',
             params: { employParams: null }
-        })
-        .state('employers', {
-            url: '/employers',
-            templateUrl: '/templates/employers.html',
-            controller: 'employerController',
-            params: { employerParams: null }
         })   
         .state('employer', {
             url: '/employer/:id',
@@ -43,3 +40,4 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         });
     $urlRouterProvider.otherwise('/home');
 }]);
+
