@@ -138,6 +138,7 @@ app.get('/projects', function (req, res, next) {
 // Adds an project to the projects collection in the database
 app.post('/projects', function (req, res, next) {
     Project.create(req.body, handler(res, next));
+
 });
 // Deletes an project from the database
 app.delete('/project/:projectId', function (req, res, next) {
@@ -193,7 +194,9 @@ function handler(res, next) {
         if (err) {
             return next(err);
         }
+        console.log(beer)
         res.send(beer);
+        
     };
 }
 ///////////////////////////////END OF HANDLERS////////////////////////////////

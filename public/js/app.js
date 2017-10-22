@@ -4,7 +4,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'home.html'
+            templateUrl: 'home.html',
+            controller : "employersCtrl"
         })
         .state('employers', {
             url: '/employers',
