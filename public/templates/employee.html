@@ -12,8 +12,8 @@
     <div class="row">
         <h1>All Projects</h1>
 
-        <input type="text" ng-model="searchProject" placeholder="Search By Project" />
-        <br>
+        <input type="text" ng-model="search" placeholder="Search By Project" />
+        <br><br>
         <a class="navbar-employer" ui-sref="home">HOME PAGE</a>
         <br>
         <br>
@@ -21,7 +21,7 @@
         <div class="all-projects">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 project" ng-repeat="project in projects track by $index">
+                    <div class="col-sm-4 project" ng-repeat="project in projects |filter:{title:search} track by $index">
                         <img class="project-img" src="{{project.img}}" />
                         <h3>{{project.title}}
                             <span>{{project.type}}</span>
@@ -29,12 +29,13 @@
                         <span>{{project.description}}</span> <br>
                       <span>skills:</span>  <button class="skils" ng-repeat="skill in project.skils">{{skill}}</button>
                         <br>
-                        <button type="button" ng-click="addMovies(movie)">Add Me</button>
+                        <br>
+                        <button class="btn btn-success" type="button" ng-click="addMovies(movie)">Submit A Proposal</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
 </body>
 
