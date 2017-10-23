@@ -42,6 +42,6 @@ app.controller('employersCtrl', function($rootScope, $scope, employerFact, $loca
 
       .catch(function(error) {
         console.log(error)
-      });
+      }); // dfsfdsf
   }
 });
