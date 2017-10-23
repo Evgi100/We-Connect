@@ -89,13 +89,8 @@ app.get('/employers', function (req, res, next) {
 
 // Adds an employer to the employers collection in the database
 app.post('/employers', function (req, res, next) {
-    Employer.create(req.body, function (err, employer) {
-        if (err) { return next(err) }
-        return res.send(employer);
-        res.send('POST!');
-    })
+    Employer.create(req.body, handler(res, next));
 });
-
 
 // Deletes an employer from the database
 app.delete('/employer/:employerId', function (req, res, next) {
@@ -170,6 +165,7 @@ app.post('/project/employer/:employerId', function (req, res, next) {
     let employerId = req.params.employerId;
     let project = new Project(req.body);
     project.save();
+    console.log(project);
     let updateObj = { $push: { allProjects: project } };
     Employer.findByIdAndUpdate(employerId, updateObj, { new: true }, handler(res, next));
 });
