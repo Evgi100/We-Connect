@@ -50,24 +50,31 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
     //   console.log(response.data);
     //   return angular.copy(response.data);
     // });
-    projectsFact.addProjectEmployer({
-        title: 'Make a nice website for my business',
-        type: 'Web Development',
-        images: [],
-        description: 'blah blah blah and blah',
-        // currentProjects: [String],
-        // finishedProjects: [String],
-        dateStarted: new Date(),
-        skills: ['Html', 'Css', 'Javascript', 'Angular'],
-        EmployerUserName: 'donaldtrump'
-      }, '59ee03ace6acc81c34c486b6')
-      .catch(function(error) {
-        console.log(error);
-      });
+    /*projectsFact.addProject*/
+    // projectsFact.addProjectEmployer({
+    //     title: 'Make a nice website for my business',
+    //     type: 'Web Development',
+    //     images: [],
+    //     description: 'blah blah blah and blah',
+    //
+    //     // currentProjects: [String],
+    //     // finishedProjects: [String],
+    //     dateStarted: new Date(),
+    //     skills: ['Html', 'Css', 'Javascript', 'Angular'],
+    //     EmployerUserName: 'donaldtrump'
+    //   }, "59ee03ace6acc81c34c486b6")
+    //   .catch(function (error) {
+    //     console.log(error + 'This');
+    //   });
+      let empId = '59ee03ace6acc81c34c486b5';
+      let projId = '59ee10b79cefc42d21158f22';
+      projectsFact.addProjectEmployee(projId, empId);
 
     // projectsFact.addProjectEmployee();
   }
+
   dummydata();
+
   ////////////////END OF DUMMY DATA SCRIPT/////////////
 
 });

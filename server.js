@@ -161,29 +161,38 @@ app.get('/project/:projectId', function (req, res, next) {
     Project.findById(projectId, handler(res, next));
 });
 // Create new project and add it to employer allProjects array
-app.post('/project/employer/:employerId', function (req, res, next) {
+app.post('/projects/employer/:employerId', function (req, res, next) {
     let employerId = req.params.employerId;
-    let project = new Project(req.body);
-    project.save();
-    console.log(project);
-    let updateObj = { $push: { allProjects: project } };
-    Employer.findByIdAndUpdate(employerId, updateObj, { new: true }, handler(res, next));
+    Project.create(req.body, function(err, project) {
+      console.log(project);
+      let updateObj = { $push: { allProjects: project } };
+      Employer.findByIdAndUpdate(employerId, updateObj, { new: true }, function() {
+        console.log(project);
+        res.send(project);
+      });
+    });
 });
 // Add project to employee allProjects array
 
-app.post('/project/employee/:employeeId/:projectId', function (req, res, next) {
+app.post('/projects/employee/:employeeId/:projectId', function (req, res, next) {
     let employeeId = req.params.employeeId,
     projectId = req.params.projectId;
     Project.findById(projectId, function(err, project) {
       let updateObj = {$push: {allProjects: project}};
-      Employee.findByIdAndUpdate(employeeId, updateObj, {new: true}, handler(res, next));
+      Employee.findByIdAndUpdate(employeeId, updateObj, {new: true}, function() {
+        console.log(project);
+        res.send(project);
+      });
     });
 });
 
 /////////////////DEV ROUTES/////////
 // Adds an project to the projects collection in the database
 app.post('/projects', function (req, res, next) {
-    Project.create(req.body, handler(res, next));
+    Project.create(req.body, /*handler(res, next)*/ function(err, project) {
+      console.log(project);
+      res.send(project);
+    });
 });
 app.all('*', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
@@ -221,7 +230,7 @@ function handler(res, next) {
         if (err) {
             return next(err);
         }
-        console.log(data)
+        // console.log(data);
         res.send(data);
     };
 }
