@@ -10,8 +10,8 @@
 
 <body>
     <div class="row">
-        <h1>All Projects</h1>
-
+        <h1>Join Real Projects</h1>
+<br>
         <input type="text" ng-model="search" placeholder="Search By Project" />
         <br><br>
         <a class="navbar-employer" ui-sref="home">HOME PAGE</a>
@@ -21,16 +21,17 @@
         <div class="all-projects">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 project" ng-repeat="project in projects |filter:{title:search} track by $index">
-                        <img class="project-img" src="{{project.img}}" />
-                        <h3>{{project.title}}
-                            <span>{{project.type}}</span>
-                        </h3> <br>
-                        <span>{{project.description}}</span> <br>
+                    <div class="col-sm-12 project text-left" ng-repeat="project in projects |filter:{title:search} track by $index">
+                        <h3>{{project.title}} 
+                        </h3>
+                         <br>
+                        <span>{{project.description}}</span> <br><br>
                       <span>skills:</span>  <button class="skils" ng-repeat="skill in project.skils">{{skill}}</button>
-                        <br>
-                        <br>
-                        <button class="btn btn-success" type="button" ng-click="addMovies(movie)">Submit A Proposal</button>
+                      <br><br>
+                      <span>Type: {{project.type}}</span>
+                        <br><br>
+                        <button class="btn btn-success" type="button" ng-click="addMovies(movie)">Join The Project</button>
+                        <hr>
                     </div>
                 </div>
             </div>
