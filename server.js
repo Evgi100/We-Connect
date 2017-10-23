@@ -178,6 +178,8 @@ app.post('/projects/employee/:employeeId/:projectId', function (req, res, next) 
     let employeeId = req.params.employeeId,
     projectId = req.params.projectId;
     Project.findById(projectId, function(err, project) {
+      project.isTaken = true;
+      project.save();
       let updateObj = {$push: {allProjects: project}};
       Employee.findByIdAndUpdate(employeeId, updateObj, {new: true}, function() {
         console.log(project);
