@@ -1,3 +1,22 @@
 <a class="navbar-employer" ui-sref="home">HOME</a>
+
 <input type="text"  placeholder="Search By Skills"/>
 <button type="button">Search</button>
+
+
+<div class="row">
+    <h1>All Employees</h1>
+    <input type="text" ng-model="searchSkills" placeholder="Search By Skills" />
+    <div class="all-employees" ng-repeat="employee in employees | filter: {skills: searchSkills} track by $index ">
+        <div class="employees col-md-4">
+            <img class="employee-img" src="{{employee.img}}" />
+            <h3>{{employee.username}},<span>{{employee.location}}</span></h3>
+            <span>{{employee.skills}}</span>
+            <br>
+            <button type="button" ng-click="showme=true" ng-hide="showme">I want you for my project</button>
+            <i ng-show="showme" class="fa fa-check fa-3x" aria-hidden="true" ng-click="showme=false"></i>
+        </div>
+    </div>
+</div>
+
+

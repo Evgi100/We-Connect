@@ -9,7 +9,8 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
         .state('employers', {
             url: '/employers',
             templateUrl: 'templates/employers.html',
-            // controller : "employersCtrl"
+            controller : "employersCtrl"
+
         })
         .state('employees', {
             url: '/employees',
