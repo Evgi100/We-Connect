@@ -6,13 +6,6 @@ app.factory('projectFact', function ($http) {
                 return angular.copy(response.data);
             });
     };
-    // Adds employee to database after signup
-    let addProject = function (project) {
-        return $http.post('/projects', project)
-            .then(function (response) {
-                return angular.copy(response.data);
-            });
-    };
     // Gets individual employee object
     let getProject = function (id) {
         return $http.get('/project/' + id)
@@ -39,6 +32,18 @@ app.factory('projectFact', function ($http) {
                 return angular.copy(response.data);
             });
     };
+    let addProjectEmployer = function(project, id) {
+        http.post('/project/employer/' + id)
+    };
+    //////////////////////DEV FUNCTIONS//////////////////
+    // Adds employee to database after signup
+    let addProject = function (project) {
+        return $http.post('/projects', project)
+            .then(function (response) {
+                return angular.copy(response.data);
+            });
+    };
+    ////////////////////END OF DEV FUNCTIONS//////////////
     ///////////////////////////////END OF PROJECT FUNCTIONS////////////////////////
 
     return {

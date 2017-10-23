@@ -61,6 +61,7 @@ app.get('/employee/:employeeId', function (req, res, next) {
 
     Employee.findById(employeeId, handler(res, next));
 });
+
 /////////////////// END OF EMPLOYEE ROUTES////////////
 
 
@@ -114,6 +115,7 @@ app.get('/employer/:employerId', function (req, res, next) {
 
     Employer.findById(employerId, handler(res, next));
 });
+
 /////////////////// END OF EMPLOYER ROUTES////////////
 
 
@@ -131,13 +133,9 @@ app.get('/employer/:employerId', function (req, res, next) {
 
 
 ///////////////////PROJECT ROUTES////////////
-// Fetches all employers from the database
+// Fetches all projects from the database
 app.get('/projects', function (req, res, next) {
     Project.find({}, handler(res, next));
-});
-// Adds an project to the projects collection in the database
-app.post('/projects', function (req, res, next) {
-    Project.create(req.body, handler(res, next));
 });
 // Deletes an project from the database
 app.delete('/project/:projectId', function (req, res, next) {
@@ -156,12 +154,35 @@ app.put('/project/:projectId/update', function (req, res, next) {
         new: true
     }, handler(res, next));
 });
-// Gets one user from the database
+// Gets one project from the database
 app.get('/project/:projectId', function (req, res, next) {
     let projectId = req.params.projectId;
 
     Project.findById(projectId, handler(res, next));
 });
+// Create new project and add it to employer allProjects array
+app.post('/project/employer/:employerId', function (req, res, next) {
+    let employerId = req.params.employerId;
+    let project = new Project(req.body);
+    project.save();
+    let updateObj = {$push: {allProjects: project}};
+    Employer.findByIdAndUpdate(employerId, updateObj, {new: true}, handler(res, next));
+});
+// Add project to employee allProjects array
+app.post('/project/employee/:employeeId', function (req, res, next) {
+    let employeeId = req.params.employeeId;
+    let project = req.body;
+    let updateObj = {$push: {allProjects: project}};
+    Employer.findByIdAndUpdate(employeeId, updateObj, {new: true}, handler(res, next));
+});
+
+/////////////////DEV ROUTES/////////
+// Adds an project to the projects collection in the database
+app.post('/projects', function (req, res, next) {
+    Project.create(req.body, handler(res, next));
+});
+//////////////////END OF DEV ROUTES///////////
+
 ///////////////////END OF PROJECT ROUTES////////////
 ////////////////////////////END OF ROUTES/////////////////////////////////////
 
@@ -189,11 +210,11 @@ app.use(function (err, req, res, next) {
 });
 
 function handler(res, next) {
-    return function (err, beer) {
+    return function (err, data) {
         if (err) {
             return next(err);
         }
-        res.send(beer);
+        res.send(data);
     };
 }
 ///////////////////////////////END OF HANDLERS////////////////////////////////
