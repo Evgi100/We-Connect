@@ -10,7 +10,15 @@
 
 <body>
     <div class="row">
+
         <h1>All Projects</h1>
+        <div class="newProject">{{showName}}
+            <button type="button" class="btn btn-success" ng-click="answer('The Project was accepted')">Accept</button>
+            <button type="button" class="btn btn-danger" ng-click="answer('The Project was refused')">Refuse</button>
+
+        </div>
+
+
 
         <input type="text" ng-model="search" placeholder="Search By Project" />
         <br><br>
@@ -27,7 +35,7 @@
                             <span>{{project.type}}</span>
                         </h3> <br>
                         <span>{{project.description}}</span> <br>
-                      <span>skills:</span>  <button class="skils" ng-repeat="skill in project.skils">{{skill}}</button>
+                        <span>skills:</span> <button class="skils" ng-repeat="skill in project.skils">{{skill}}</button>
                         <br>
                         <br>
                         <button class="btn btn-success" type="button" ng-click="addMovies(movie)">Submit A Proposal</button>
@@ -35,7 +43,9 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
+
+
 
 </body>
 

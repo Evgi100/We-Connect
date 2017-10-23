@@ -1,22 +1,45 @@
 <a class="navbar-employer" ui-sref="home">HOME</a>
 
-<input type="text"  placeholder="Search By Skills"/>
-<button type="button">Search</button>
 
 
-<div class="row">
+
+
+<div class="row ">
+        <h1>My Project : Doing a movie app using <img class="project-img"src="https://cdn.worldvectorlogo.com/logos/angular-3.svg"/></h1>
+
     <h1>All Employees</h1>
     <input type="text" ng-model="searchSkills" placeholder="Search By Skills" />
-    <div class="all-employees" ng-repeat="employee in employees | filter: {skills: searchSkills} track by $index ">
-        <div class="employees col-md-4">
+    <button type="button">Search</button>
+
+    <div ng-repeat="employee in employees | filter: {skills: searchSkills} track by $index ">
+
+    
+        <div class="all-employees col-md-4">
             <img class="employee-img" src="{{employee.img}}" />
             <h3>{{employee.username}},<span>{{employee.location}}</span></h3>
             <span>{{employee.skills}}</span>
             <br>
-            <button type="button" ng-click="showme=true" ng-hide="showme">I want you for my project</button>
+
+            <button type="button" ng-click="showme=true; passing('Your New Project : Doing a movie app using Angular')" ng-hide="showme">I want you for my project</button>
+            <div>{{showAnswer}}</div>
+            
             <i ng-show="showme" class="fa fa-check fa-3x" aria-hidden="true" ng-click="showme=false"></i>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+<!-- <div ng-controller="employersCtrl">
+    <div ng-click="changeView('edit')">
+        edit
+    </div>
+    <div ng-click="changeView('preview')">
+        preview
+    </div>
+</div> -->
 
 
