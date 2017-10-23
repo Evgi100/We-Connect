@@ -24,7 +24,7 @@ const projectSchema = new Schema({
 const employeeSchema = new Schema({
     username: String,
     name: {
-        firstNam: String,
+        firstName: String,
         lastName: String
     },
     location : String,

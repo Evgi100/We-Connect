@@ -7,7 +7,7 @@ const imageSchema = new Schema({
     desc: String
 });
 
- const projectSchema = new Schema({
+const projectSchema = new Schema({
     title: String,
     type: String,
     images: [imageSchema],
@@ -15,7 +15,9 @@ const imageSchema = new Schema({
     // currentProjects: [String],
     // finishedProjects: [String],
     dateJoined : Date,
-    skills : [String]
+    skills : [String],
+    EmployerUserName: String,
+    EmployeeUserName: String
 });
 
 const Project = mongoose.model('Project', projectSchema);
@@ -23,4 +25,4 @@ const Project = mongoose.model('Project', projectSchema);
 module.exports = {
     Project:Project,
     projectSchema:projectSchema
-}
+};
