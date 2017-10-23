@@ -1,4 +1,4 @@
-app.factory('projectFact', function($http) {
+app.factory('projectsFact', function($http) {
   ///////////////////////////////PROJECT FUNCTIONS///////////////////////////////
   let getProjects = function() {
     return $http.get('/projects')
@@ -33,8 +33,10 @@ app.factory('projectFact', function($http) {
       });
   };
   let addProjectEmployer = function(project, id) {
-    return http.post('/projects/employer/' + id, project)
+    return $http.post('/projects/employer/' + id, project)
       .then(function(response) {
+        console.log('Hello Im back from the server');
+        console.log(response);
         return angular.copy(response.data);
       });
   };
@@ -42,6 +44,7 @@ app.factory('projectFact', function($http) {
   let addProjectEmployee = function(projectId, employeeId) {
     return http.post('/projects/employee/'+ employeeId +'/'+ projectId)
       .then(function(response) {
+        console.log('Hello Im back from the server');
         return angular.copy(response.data);
       });
   };
@@ -51,7 +54,7 @@ app.factory('projectFact', function($http) {
     return $http.post('/projects', project)
       .then(function(response) {
         return angular.copy(response.data);
-      });;
+      });
   };
   ////////////////////END OF DEV FUNCTIONS//////////////
   ///////////////////////////////END OF PROJECT FUNCTIONS////////////////////////

@@ -14,7 +14,7 @@ const projectSchema = new Schema({
     description: String,
     // currentProjects: [String],
     // finishedProjects: [String],
-    dateJoined : Date,
+    dateStarted : Date,
     skills : [String],
     EmployerUserName: String,
     EmployeeUserName: String
