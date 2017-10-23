@@ -1,101 +1,100 @@
 <!-- <div ng-controller="mainCtrl"> -->
 
 <div class="container-fluid">
-    <div class="row">
-        <nav class="navbar navbar-default nav">
+  <div class="row">
+    <nav class="navbar navbar-default nav">
 
-            <div class="navbar-header">
-                <ul>
-                    <li>
-                        <h3 class="title">We Connect</h3>
-                    </li>
-                    <li>
-                        <a class="navbar-employer" ui-sref="employers">Employer LogIn</a>
-                        <i class="fa fa-building icon" aria-hidden="true"></i>
-                    </li>
-                    <li>
-                        <a class="navbar-employee" ui-sref="employees">Employee LogIn</a>
-                        <i class="fa fa-briefcase icon" aria-hidden="true"></i>
-                    </li>
+      <div class="navbar-header">
+        <ul>
+          <li>
+            <h3 class="title">We Connect</h3>
+          </li>
+          <li>
+            <a class="navbar-employer" ui-sref="employers">Employer LogIn</a>
+            <i class="fa fa-building icon" aria-hidden="true"></i>
+          </li>
+          <li>
+            <a class="navbar-employee" ui-sref="employees">Employee LogIn</a>
+            <i class="fa fa-briefcase icon" aria-hidden="true"></i>
+          </li>
 
-                </ul>
-            </div>
+        </ul>
+      </div>
 
-        </nav>
+    </nav>
 
 
+    <hr>
+    <h2 class="row">How it works ?</h2>
+    <p>We-Connect is place where you come to gain experience,Work and contribute for a real life project.<br>For you as an employer its a chance to find new talent when you give them the ultimate test of working on a real project
+    </p>
+    <hr>
+
+    <div class="two-side row">
+      <div class="employers">
+        <h2>Employers</h2>
         <hr>
-        <h2 class="row">How it works ?</h2>
-        <p>We-Connect is place where you come to gain experience,Work and contribute for a real life project.<br>For you as
-            an employer its a chance to find new talent when you give them the ultimate test of working on a real project
-        </p>
-        <hr>
 
-        <div class="two-side row">
-            <div class="employers">
-                <h2>Employers</h2>
-                <hr>
-
-                <ul>
-                    <li>Find new talent</li>
-                    <li>Get free projects for free</li>
-                </ul>
+        <ul>
+          <li>Find new talent</li>
+          <li>Get free projects for free</li>
+        </ul>
 
 
 
 
 
-                <button type="button" class="btn btn-default navbar-btn" ng-click="showme=true" ng-hide="showme">Employers Sign Up</button>
+        <button type="button" class="btn btn-default navbar-btn" ng-click="showme=true" ng-hide="showme">Employers Sign Up</button>
 
-                <form ng-show="showme" ng-submit="addEmployers()">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name" ng-model="name" />
-                    </div>
-                    <!-- <div class="form-group">
+        <form ng-show="showme" ng-submit="addEmployers()">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" ng-model="name" />
+          </div>
+          <!-- <div class="form-group">
                         <input type="text" class="form-control" placeholder="Company name" ng-model="company" />
                     </div> -->
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Company pic" ng-model="image" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Projects" ng-model="project" />
-                    </div>
-                    <button type="submit" class="btn btn-signup btn-default navbar-btn" ng-click="showme=false">Sign Up</button>
-                </form>
-            </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Company pic" ng-model="image" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Projects" ng-model="project" />
+          </div>
+          <button type="submit" class="btn btn-signup btn-default navbar-btn" ng-click="showme=false">Sign Up</button>
+        </form>
+      </div>
 
 
-            <div class="employees">
-                <h2>Employee</h2>
-                <hr>
-                <ul>
-                    <li>Gain real world experience</li>
-                    <li>Get hired for full/part time positions</li>
-                </ul>
-
-
-                    <button type="button" class="btn btn-default navbar-btn" ng-click="show=true" ng-hide="show">Employees Sign Up</button>
-                    <form ng-show="show" ng-submit="addEmployee()">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username" ng-model="username" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Location" ng-model="location" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Profil Pic" ng-model="image" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Skills" ng-model="skills" />
-                        </div>
-                        <button type="submit" class="btn btn-signup btn-default navbar-btn" ng-click="changeView()">Sign Up</button>
-                    </form> 
-
-            </div>
-        </div>
+      <div class="employees">
+        <h2>Employee</h2>
         <hr>
-        <br>
+        <ul>
+          <li>Gain real world experience</li>
+          <li>Get hired for full/part time positions</li>
+        </ul>
+
+
+        <button type="button" class="btn btn-default navbar-btn" ng-click="show=true" ng-hide="show">Employees Sign Up</button>
+        <form ng-show="show" ng-submit="addEmployee()">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" ng-model="username" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Location" ng-model="location" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Profil Pic" ng-model="image" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Skills" ng-model="skills" />
+          </div>
+          <button type="submit" class="btn btn-signup btn-default navbar-btn" ng-click="changeView()">Sign Up</button>
+        </form>
+
+      </div>
     </div>
+    <hr>
+    <br>
+  </div>
 
 </div>
 </div>

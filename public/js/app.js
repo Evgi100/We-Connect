@@ -5,7 +5,7 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
         .state('home', {
             url: '/home',
             templateUrl: 'templates/home.html',
-            controller : "employersCtrl",
+            controller : "homeCtrl",
         })
 
         .state('employers', {
@@ -28,9 +28,8 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
             url: '/employers/:showAnswer?',
             templateUrl: '/templates/employers.html',
             controller: 'employersCtrl',
-        })   
+        })
 
     $urlRouterProvider.otherwise('/home');
     // $locationProvider.html5Mode(true);
 }]);
-
