@@ -1,15 +1,23 @@
 <a class="navbar-employer" ui-sref="home">HOME</a>
 
+<div ng-repeat="employer in employers track by $index">
+        <h3> Hi <strong>{{employer.username}}</strong> ! Welcome in WeConnect
+            <img class="employee-img" src="{{employer.image_url}}" />
+        </h3>
+       
+        
+
+    
+<hr>
 <div class="row ">
-    <h1>My Project : Doing a movie app using <img class="project-img" src="https://cdn.worldvectorlogo.com/logos/angular-3.svg"
-        /></h1>
+    <h3><u>My Project</u> : The student has to do a movie app using <strong>{{employer.currentProject|uppercase}}</strong></h3>
     <hr>
     <div class="show-answer">{{showAnswer}} <i ng-show="showAnswer" class="fa fa-handshake-o" aria-hidden="true"></i></div>
     <hr>
     <h1>All Employees</h1>
     <input type="text" ng-model="searchSkills" placeholder="Search By Skills" />
     <i type="button" class="fa fa-search" aria-hidden="true"></i>
-
+</div>
 
     <div ng-repeat="employee in employees | filter: {skills: searchSkills} track by $index ">
 
