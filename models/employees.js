@@ -36,7 +36,8 @@ const employeeSchema = new Schema({
     allProjects: [projectSchema],
     isAvail : Boolean,
     dateJoined : Date,
-    skills : [String]
+    skills : String
+
 });
 
 const Employee = mongoose.model('Employee', employeeSchema);

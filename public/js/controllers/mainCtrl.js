@@ -1,6 +1,5 @@
 app.controller('mainCtrl', function($scope, employeeFact, employerFact, projectsFact) {
   //////////////DUMMY DATA SCRIPT////////////////////
-
   function dummydata(/*dummyProjectId*/) {
     // console.log('Heeeeeeeeeeeeeeeeeelooooooooooooooo');
     // employeeFact.addEmployee({
@@ -69,5 +68,17 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
   }
   dummydata();
   ////////////////END OF DUMMY DATA SCRIPT/////////////
+
+
+//EMPLOYER SIGN UP//
+
+
+//EMPLOYEE SIGN UP//
+
+
+
+
+
+
 
 });

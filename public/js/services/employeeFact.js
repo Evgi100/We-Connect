@@ -24,6 +24,7 @@ app.factory('employeeFact', function ($http) {
                 return angular.copy(response.data);
             });
     };
+
     // Gets individual employee object
     let getEmployee = function (id) {
         return $http.get('/employee/' + id)
