@@ -9,21 +9,27 @@ app.factory('employerFact', function ($http) {
         // { img: "http://www.cgmeetup.net/forums/uploads/gallery/album_1392/med_gallery_646_1392_48130.jpg", title: "Beauty and the Beast", year: 2016, descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so I would think, given how breath-takingly pretty she is. I mean wow. Rumor has it she'll whip out a wand and turn Gaston into a toad.", price: 3 }
     ];
 
-//PASSING DATA IN THE 2 TEMPLATES//
-    // var savedData = {}
-    // function set(data) {
-    //     savedData = data;
-    // }
-    // function get() {
-    //     return savedData;
-    // }
 
-    // return {
-    //     set: set,
-    //     get: get
-    // }
-
-
+        //   var data1={};
+        //   var data2={};
+        //   this.save=function(data1,data2){        
+        //        this.data1=data1;
+        //        this.data2=data2;
+        
+        //   };
+        
+        //   this.getData1=function(){
+        
+        //     return data1;
+        
+        //   };
+        
+        //   this.getData2=function(){
+        
+        //     return data2;
+        
+        //   };
+        // });
 
 
 

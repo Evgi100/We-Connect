@@ -7,6 +7,7 @@
 <div class="row ">
         <h1>My Project : Doing a movie app using <img class="project-img"src="https://cdn.worldvectorlogo.com/logos/angular-3.svg"/></h1>
 
+        <div>{{showAnswer}}</div>
     <h1>All Employees</h1>
     <input type="text" ng-model="searchSkills" placeholder="Search By Skills" />
     <button type="button">Search</button>
@@ -20,8 +21,7 @@
             <span>{{employee.skills}}</span>
             <br>
 
-            <button type="button" ng-click="showme=true; passing('Your New Project : Doing a movie app using Angular')" ng-hide="showme">I want you for my project</button>
-            <div>{{showAnswer}}</div>
+            <button type="button" ui-sref="employeesAll({showName:'Your New Project : Doing a movie app using Angular'})" ng-click="showme=true" ng-hide="showme">I want you for my project</button>
             
             <i ng-show="showme" class="fa fa-check fa-3x" aria-hidden="true" ng-click="showme=false"></i>
         </div>
