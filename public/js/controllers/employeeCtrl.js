@@ -1,4 +1,4 @@
-app.controller('employeeCtrl', function ($scope,$stateParams,$location,projectsFact) {
+app.controller('employeeCtrl', function ($scope,$stateParams,$location,projectsFact,employeeFact,$rootScope) {
     $scope.projects = [
         {  title: "I need a web site",type:"Web Development", datestarted :2017-10-22, description: "I need a web developer to build my Health and Fitness website - Fit Ethos.", skills:['HTML','JAVASCRIPT','CSS'], },
         {  title: "Invitation Design Needed - For invitation to short film screening",type:"Design", datestarted: 2017-10-22, description: "I am looking for someone  to design a simple and classic design for an invitation to a film screening in London",skills:['Graphic Design','Photoshop'], },
@@ -6,7 +6,7 @@ app.controller('employeeCtrl', function ($scope,$stateParams,$location,projectsF
         {  title: "Angular JS and Laravel PHP UI - small upgrades",type:"Angular", datestarted: 2017-10-22, description: "We have a running website www.gastro-booking.com and we are searching for a good developer in Laravel and Angular 1 to add new funcionalities",skills:['Angular.js','Laravel'], }
     ]
 
-projectsFact.getProjec(id)
+projectsFact.getProject()
     .then(function(project){
         $scope.projects=project;
     })
