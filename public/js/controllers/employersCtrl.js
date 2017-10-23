@@ -9,6 +9,7 @@ app.controller('employersCtrl',function($scope,employerFact,$location,$statePara
      employerFact.getEmployers ()
      .then(function (employer) {
          $scope.employers = employer;
+         console.log(getSingleBeer)
      })
      .catch(function (error) {
          console.log(error)
@@ -22,7 +23,7 @@ app.controller('employersCtrl',function($scope,employerFact,$location,$statePara
         username : $scope.name,
         companyName : $scope.company,
         image_url: $scope.image,
-        // allProjects : $scope.project
+        currentProject: $scope.project
         }
         $scope.name  = "";
         $scope.company = "";
@@ -30,7 +31,7 @@ app.controller('employersCtrl',function($scope,employerFact,$location,$statePara
         console.log($scope.name)
         employerFact.addEmployer(employerInfo)
         .then(function (employer) {
-            $scope.employers = employer
+            // $scope.employers = employer
             console.log($scope.employers)
         })
         .catch(function (error) {

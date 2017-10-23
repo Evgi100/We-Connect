@@ -36,6 +36,7 @@ const employerSchema = new Schema({
     // currentProjects: [String],
     // finishedProjects: [String],
     allProjects: [projectSchema],
+    currentProject : String,
     dateJoined : Date,
 });
 
