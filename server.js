@@ -26,9 +26,7 @@ app.use(bodyParser.urlencoded({
 
 
 //////////////////////////////ROUTES//////////////////////////////////////////
-app.all('*', function (req, res) {
-    res.sendFile(__dirname + '/public/index.html');
-});
+
 ///////////////////EMPLOYEE ROUTES///////////////////
 // Fetches all employees from the database
 app.get('/employees', function (req, res, next) {
@@ -147,7 +145,7 @@ app.put('/project/:projectId/update', function (req, res, next) {
     let projectId = req.params.projectId,
         key = req.body.key,
         val = req.body.val;
-    var updateObject = {};
+    let updateObject = {};
     updateObject[key] = val;
 
     Project.findByIdAndUpdate(projectId, updateObject, {
@@ -169,17 +167,22 @@ app.post('/project/employer/:employerId', function (req, res, next) {
     Employer.findByIdAndUpdate(employerId, updateObj, {new: true}, handler(res, next));
 });
 // Add project to employee allProjects array
-app.post('/project/employee/:employeeId', function (req, res, next) {
-    let employeeId = req.params.employeeId;
-    let project = req.body;
-    let updateObj = {$push: {allProjects: project}};
-    Employer.findByIdAndUpdate(employeeId, updateObj, {new: true}, handler(res, next));
+app.post('/project/employee/:employeeId/:projectId', function (req, res, next) {
+    let employeeId = req.params.employeeId,
+    projectId = req.params.projectId;
+    Project.findById(projectId, function(err, project) {
+      let updateObj = {$push: {allProjects: project}};
+      Employee.findByIdAndUpdate(employeeId, updateObj, {new: true}, handler(res, next));
+    });
 });
 
 /////////////////DEV ROUTES/////////
 // Adds an project to the projects collection in the database
 app.post('/projects', function (req, res, next) {
     Project.create(req.body, handler(res, next));
+});
+app.all('*', function (req, res) {
+    res.sendFile(__dirname + '/public/index.html');
 });
 //////////////////END OF DEV ROUTES///////////
 
