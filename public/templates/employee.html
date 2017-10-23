@@ -14,7 +14,7 @@
         <br>
 
 
-        <div class="newProject">{{showName}}
+        <div class="newProject" ng-show="showName">{{showName}}
             <button type="button" class="btn btn-success" ui-sref="employersAll({showAnswer:'The Project was accepted'})">Accept</button>
             <button type="button" class="btn btn-danger" ui-sref="employersAll({showAnswer:'The Project was refused'})">Refuse</button>
 
