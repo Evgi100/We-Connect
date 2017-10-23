@@ -1,28 +1,37 @@
 var app = angular.module('weConnectApp', ['ui.router']);
 
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function ($stateProvider, $urlRouterProvider,$locationProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'home.html'
+            templateUrl: 'templates/home.html'
         })
         .state('employers', {
             url: '/employers',
-            templateUrl: 'employers.html',
-            // controller : "employersCtrl"
+            templateUrl: 'templates/employers.html',
+            controller : "employersCtrl"
+
         })
         .state('employees', {
             url: '/employees',
-            templateUrl: '/templates/employees.html',
-            controller: 'employeeController',
-            params: { employParams: null }
+            templateUrl: 'templates/employee.html',
+            controller: 'employeeCtrl',
+            // params: { employParams: null }
         })
-        // .state('employee', {
-        //     url: '/employee/:id',
-        //     templateUrl: '/templates/employee.html',
-        //     controller: 'employeeController',
-        //     params: { employParams: null }
-        // })   
+
+        
+        // .state('employees.showName', {
+        //     url: '/employees/:showName?',
+        //     templateUrl: 'templates/employee.html',
+        //     controller: 'employeeCtrl',
+        //     // params: { employParams: null }
+        // })
+        .state('employers.answer', {
+            url: '/employers/:showAnswer?',
+            templateUrl: '/templates/employers.html',
+            controller: 'employerController',
+            // params: { employParams: null }
+        })   
         // .state('employer', {
         //     url: '/employer/:id',
         //     templateUrl: '/templates/employer.html',
@@ -40,5 +49,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         //     controller: 'projectsController'
         // });
     $urlRouterProvider.otherwise('/home');
+    $locationProvider.html5Mode(true);
 }]);
 
