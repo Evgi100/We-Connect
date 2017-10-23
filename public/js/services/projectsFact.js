@@ -35,14 +35,14 @@ app.factory('projectsFact', function($http) {
   let addProjectEmployer = function(project, id) {
     return $http.post('/projects/employer/' + id, project)
       .then(function(response) {
-        console.log('Hello Im back from the server');
+        console.log('Hello Im back from the factory/server');
         console.log(response);
         return angular.copy(response.data);
       });
   };
   // Adds a new project to the employee allProjects array once he accepts
   let addProjectEmployee = function(projectId, employeeId) {
-    return http.post('/projects/employee/'+ employeeId +'/'+ projectId)
+    return $http.post('/projects/employee/'+ employeeId +'/'+ projectId)
       .then(function(response) {
         console.log('Hello Im back from the server');
         return angular.copy(response.data);
