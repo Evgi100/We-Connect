@@ -17,7 +17,8 @@ const projectSchema = new Schema({
     dateStarted : Date,
     skills : [String],
     EmployerUserName: String,
-    EmployeeUserName: String
+    EmployeeUserName: String,
+    isTaken:Boolean
 });
 
 const Project = mongoose.model('Project', projectSchema);

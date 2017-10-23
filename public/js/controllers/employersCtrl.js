@@ -1,5 +1,10 @@
 app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $location, $stateParams, employeeFact, $state) {
     
+    $scope.addNewProjectClicked = false;
+    $scope.showAddOption = function () {
+        $scope.addNewProjectClicked = !$scope.addNewProjectClicked;
+    }
+
     $scope.employers = []
 
     $scope.employees = employerFact.allEmployees;
@@ -39,6 +44,7 @@ app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $loc
         alert("Hello, i am the add project function")
         var project = {
             title: $scope.title,
+            type:$scope.type,
             date: $scope.date,
             description: $scope.description,
             skills:['blah']

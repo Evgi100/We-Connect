@@ -1,13 +1,5 @@
 app.factory('employeeFact', function ($http) {
-
-    
-
-
-
-
-
-
-
+ 
 
     /////////////////////////////EMPLOYEE FUNCTIONS/////////////////////////////
     // Returns employees array with objects
