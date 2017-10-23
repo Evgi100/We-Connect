@@ -1,45 +1,29 @@
 <a class="navbar-employer" ui-sref="home">HOME</a>
 
-
-
-
-
 <div class="row ">
-        <h1>My Project : Doing a movie app using <img class="project-img"src="https://cdn.worldvectorlogo.com/logos/angular-3.svg"/></h1>
-
-        <div>{{showAnswer}}</div>
+    <h1>My Project : Doing a movie app using <img class="project-img" src="https://cdn.worldvectorlogo.com/logos/angular-3.svg"
+        /></h1>
+    <hr>
+    <div class="show-answer">{{showAnswer}} <i ng-show="showAnswer" class="fa fa-handshake-o" aria-hidden="true"></i></div>
+    <hr>
     <h1>All Employees</h1>
     <input type="text" ng-model="searchSkills" placeholder="Search By Skills" />
-    <button type="button">Search</button>
+    <i type="button" class="fa fa-search" aria-hidden="true"></i>
+
 
     <div ng-repeat="employee in employees | filter: {skills: searchSkills} track by $index ">
 
-    
+
         <div class="all-employees col-md-4">
             <img class="employee-img" src="{{employee.img}}" />
-            <h3>{{employee.username}},<span>{{employee.location}}</span></h3>
-            <span>{{employee.skills}}</span>
+            <h3>{{employee.username | uppercase}}</h3>
+            <hr>
+            <span>{{employee.location}}</span>
+            <br>
+            <span><strong>Skills : </strong>{{employee.skills}}</span>
             <br>
 
-            <button type="button" ui-sref="employeesAll({showName:'Your New Project : Doing a movie app using Angular'})" ng-click="showme=true" ng-hide="showme">I want you for my project</button>
-            
-            <i ng-show="showme" class="fa fa-check fa-3x" aria-hidden="true" ng-click="showme=false"></i>
+            <button type="button" class="project-choose" ui-sref="employeesAll({showName:'Your New Project : Doing a movie app using Angular'})">I want you for my project</button>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-<!-- <div ng-controller="employersCtrl">
-    <div ng-click="changeView('edit')">
-        edit
-    </div>
-    <div ng-click="changeView('preview')">
-        preview
-    </div>
-</div> -->
-
-

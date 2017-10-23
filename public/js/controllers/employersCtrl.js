@@ -6,21 +6,36 @@ app.controller('employersCtrl',function($scope,employerFact,$location,$statePara
      $scope.showAnswer=$stateParams.showAnswer
 
 
-    // $scope.addEmployers = function() {
-    //     alert('hi')
-    //     var employerInfo = {
-    //     username : $scope.name,
-    //     comapanyName : $scope.company,
-    //     // allProjects : $scope.project
-    //     }
-    //     employerFact.addEmployer(employerInfo)
-    //     .then(function (employer) {
-    //         $scope.employers.push(employer)
-    //         console.log($scope.employers)
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error)
-    //     });
-    // }
+     employerFact.getEmployers ()
+     .then(function (employer) {
+         $scope.employers = employer;
+     })
+     .catch(function (error) {
+         console.log(error)
+     });
+
+
+
+    $scope.addEmployers = function() {
+        alert('hi')
+        var employerInfo = {
+        username : $scope.name,
+        companyName : $scope.company,
+        image_url: $scope.image,
+        // allProjects : $scope.project
+        }
+        $scope.name  = "";
+        $scope.company = "";
+        $scope.company = "";
+        console.log($scope.name)
+        employerFact.addEmployer(employerInfo)
+        .then(function (employer) {
+            $scope.employers = employer
+            console.log($scope.employers)
+        })
+        .catch(function (error) {
+            console.log(error)
+        });
+    }
 })
 

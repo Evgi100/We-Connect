@@ -10,8 +10,10 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'templates/home.html'
+            templateUrl: 'templates/home.html',
+            controller : "employersCtrl",
         })
+
         .state('employers', {
             url: '/employers',
             templateUrl: 'templates/employers.html',
@@ -34,25 +36,6 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
             controller: 'employersCtrl',
         })   
 
-
-
-
-        // .state('employer', {
-        //     url: '/employer/:id',
-        //     templateUrl: '/templates/employer.html',
-        //     controller: 'employerController',
-        //     params: { employerParams: null }
-        // })
-        // .state('projects', {
-        //     url: '/projects',
-        //     templateUrl: '/projects.html',
-        //     controller: 'projectsController'
-        // })
-        // .state('project', {
-        //     url: '/project/:id',
-        //     templateUrl: '/project.html',
-        //     controller: 'projectsController'
-        // });
     $urlRouterProvider.otherwise('/home');
     $locationProvider.html5Mode(true);
 }]);
