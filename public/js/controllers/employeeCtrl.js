@@ -8,13 +8,10 @@ app.controller('employeeCtrl', function ($scope,$stateParams,$location) {
     ]
 
 
-// $scope.passingRoute = employerFact.get();
-
-
     $scope.showName=$stateParams.showName
 
-    $scope.answer=function(msg){
-        $location.path("/employers/"+msg)
-    }
+    // $scope.answer=function(msg){
+    //     $location.path("/employers/" + msg)
+    // }
 
 })

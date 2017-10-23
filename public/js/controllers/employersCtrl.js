@@ -3,22 +3,7 @@ app.controller('employersCtrl',function($scope,employerFact,$location,$statePara
 
     $scope.employees = employerFact.allEmployees;
 
-    // function Cntrl ($scope,$location) {
-    //     $scope.changeView = function(view){
-    //         $location.path(view); // path not hash
-    //     }
-    // }
-
-
-    $scope.passing=function(msg){
-        $location.path("/employees/:showName/"+msg)
-     }
-
      $scope.showAnswer=$stateParams.showAnswer
-
-    // // $scope.passing = function() {
-    //     employerFact.set("hello");
-
 
 
     // $scope.addEmployers = function() {

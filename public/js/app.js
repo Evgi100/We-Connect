@@ -9,29 +9,28 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
         .state('employers', {
             url: '/employers',
             templateUrl: 'templates/employers.html',
-            controller : "employersCtrl"
-
+            controller : "employersCtrl",
         })
         .state('employees', {
             url: '/employees',
             templateUrl: 'templates/employee.html',
             controller: 'employeeCtrl',
-            // params: { employParams: null }
         })
+        .state('employeesAll', {
+            url: '/employees/:showName?',
+            templateUrl: 'templates/employee.html',
+            controller: 'employeeCtrl',
 
-        
-        // .state('employees.showName', {
-        //     url: '/employees/:showName?',
-        //     templateUrl: 'templates/employee.html',
-        //     controller: 'employeeCtrl',
-        //     // params: { employParams: null }
-        // })
-        .state('employers.answer', {
+        })
+        .state('employersAll', {
             url: '/employers/:showAnswer?',
             templateUrl: '/templates/employers.html',
-            controller: 'employerController',
-            // params: { employParams: null }
+            controller: 'employersCtrl',
         })   
+
+
+
+
         // .state('employer', {
         //     url: '/employer/:id',
         //     templateUrl: '/templates/employer.html',

@@ -11,15 +11,15 @@
 <body>
     <div class="row">
 
-        <h1>All Projects</h1>
+
         <div class="newProject">{{showName}}
-            <button type="button" class="btn btn-success" ng-click="answer('The Project was accepted')">Accept</button>
-            <button type="button" class="btn btn-danger" ng-click="answer('The Project was refused')">Refuse</button>
+            <button type="button" class="btn btn-success" ui-sref="employersAll({showAnswer:'The Project was accepted'})">Accept</button>
+            <button type="button" class="btn btn-danger" ui-sref="employersAll({showAnswer:'The Project was refused'})">Refuse</button>
 
         </div>
 
 
-
+        <h1>All Projects</h1>
         <input type="text" ng-model="search" placeholder="Search By Project" />
         <br><br>
         <a class="navbar-employer" ui-sref="home">HOME PAGE</a>
