@@ -1,6 +1,5 @@
 app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $location, $stateParams, employeeFact, $state) {
     
-
     $scope.employers = []
 
     $scope.employees = employerFact.allEmployees;
@@ -28,6 +27,31 @@ app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $loc
         });
 
 
+    employerFact.getEmployers()
+        .then(function (employer) {
+            $scope.employers = employer;
+        })
+        .catch(function (error) {
+            console.log(error)
+        });
+    
+    $scope.addProject = function () {
+        alert("Hello, i am the add project function")
+        var project = {
+            title: $scope.title,
+            date: $scope.date,
+            description: $scope.description,
+            skills:['blah']
+        }
+        projectsFacts.addProjectEmployer(project)
+            .then(function(project){
+                console.log(project)
+            })
+        
+        .catch(function (error) {
+            console.log(error)
+        });
+    }
 
     $scope.addEmployers = function () {
         alert('hi')
@@ -50,8 +74,4 @@ app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $loc
                 console.log(error)
             });
     }
-
-
-
-})
-
+});
