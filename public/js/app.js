@@ -1,11 +1,5 @@
 var app = angular.module('weConnectApp', ['ui.router']);
 
-app.filter('currentdate',['$filter',  function($filter) {
-    return function() {
-        return $filter('date')(new Date(), 'yyyy-MM-dd');
-    };
-}])
-
 app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function ($stateProvider, $urlRouterProvider,$locationProvider) {
     $stateProvider
         .state('home', {
