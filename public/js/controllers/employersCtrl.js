@@ -1,4 +1,5 @@
-app.controller('employersCtrl', function ($scope, employerFact, $location, $stateParams, employeeFact) {
+app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $location, $stateParams, employeeFact, $state) {
+    
 
     $scope.employers = []
 
@@ -6,7 +7,16 @@ app.controller('employersCtrl', function ($scope, employerFact, $location, $stat
 
     $scope.showAnswer = $stateParams.showAnswer
 
-
+    $scope.changeView = function () {
+        $rootScope.username = $scope.username
+        $rootScope.location = $scope.location
+        $rootScope.image = $scope.image
+        $rootScope.skills = $scope.skills
+        // console.log($scope.username,$scope.location,$scope.image,$scope.skills)
+        console.log('hey')
+        $state.go("employees");
+        
+    }
 
     employerFact.getEmployers()
         .then(function (employer) {
@@ -41,7 +51,7 @@ app.controller('employersCtrl', function ($scope, employerFact, $location, $stat
             });
     }
 
-  
-   
+
+
 })
 
