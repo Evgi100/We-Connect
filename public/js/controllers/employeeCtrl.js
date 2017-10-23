@@ -1,6 +1,4 @@
-app.controller('employeeCtrl', function ($scope, $stateParams, employeeFact) {
-
-
+app.controller('employeeCtrl', function ($rootScope, $scope, $stateParams, employeeFact) {
 
     $scope.projects = [
         { title: "I need a web site", type: "Web Development", dateJoined: 2017 - 10 - 22, description: "I need a web developer to build my Health and Fitness website - Fit Ethos.", skils: ['HTML', 'JAVASCRIPT', 'CSS'], },
@@ -12,8 +10,8 @@ app.controller('employeeCtrl', function ($scope, $stateParams, employeeFact) {
 
     $scope.showName = $stateParams.showName
 
-     $scope.employees = []
-    
+     $scope.employees = [];
+    console.log("hello")
     
         employeeFact.getEmployees()
             .then(function (employer) {
@@ -21,31 +19,33 @@ app.controller('employeeCtrl', function ($scope, $stateParams, employeeFact) {
                 console.log($scope.employers)
             })
             .catch(function (error) {
+                console.log(error);
+            });
+     
+            var employeeInfo = {
+                username: $rootScope.username,
+                location:$rootScope.location,
+                image_url: $rootScope.image,
+                skills: $rootScope.skills
+            }
+            console.log(employeeInfo);
+
+        employeeFact.addEmployee(employeeInfo)
+            .then(function (employee) {
+                $scope.employees = employee
+                console.log($scope.employees)
+            })
+            .catch(function (error) {
                 console.log(error)
             });
-    
-        $scope.addEmployee = function () {
-            alert('hi')
-            var employeeInfo = {
-                username: $scope.username,
-                location: $scope.location,
-                image_url: $scope.image,
-                skills: $scope.skills
-            }
-            $scope.username = "";
-            $scope.location = "";
-            $scope.image = "";
-            $scope.skills = "";
-            console.log(employeeInfo);
-            employeeFact.addEmployee(employeeInfo)
-                .then(function (employee) {
-                    $scope.employees = employee
-                    console.log($scope.employees)
-                })
-                .catch(function (error) {
-                    console.log(error)
-                });
-        }
+            
+            // $scope.username = "";
+            // $scope.location = "";
+            // $scope.image = "";
+            // $scope.skills = "";
+            
+            // employeeFact.addEmployee(employeeInfo)
+                
 
 
 })
