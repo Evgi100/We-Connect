@@ -1,21 +1,21 @@
 var app = angular.module('weConnectApp', ['ui.router']);
 
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function ($stateProvider, $urlRouterProvider,$locationProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'home.html',
-            controller : "employersCtrl"
+            templateUrl: 'templates/home.html'
         })
         .state('employers', {
             url: '/employers',
-            templateUrl: 'employers.html',
+            templateUrl: 'templates/employers.html',
             controller : "employersCtrl"
+
         })
         .state('employees', {
             url: '/employees',
-            templateUrl: '/templates/employees.html',
-            controller: 'employeeController',
+            templateUrl: 'templates/employee.html',
+            controller: 'employeeCtrl',
             params: { employParams: null }
         })
         // .state('employee', {
@@ -41,5 +41,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         //     controller: 'projectsController'
         // });
     $urlRouterProvider.otherwise('/home');
+    $locationProvider.html5Mode(true);
 }]);
 
