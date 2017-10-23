@@ -1,24 +1,42 @@
 <a class="navbar-employer" ui-sref="home">HOME</a>
 
 <div ng-repeat="employer in employers track by $index">
-    <h3> Hi <strong>{{employer.username}}</strong> ! Welcome in WeConnect
+    <h3> Hi
+        <strong>{{employer.username}}</strong> ! Welcome in WeConnect
         <img class="employee-img" src="{{employer.image_url}}" />
     </h3>
-    <hr>
+    <!-- Button that reveals the add project form -->
+
     <div class="row ">
         <h3>
-            <u>My Project</u> : The student has to do a movie app using <strong>{{employer.currentProject|uppercase}}</strong></h3>
+            <u>My Project</u> : The student has to do a movie app using
+            <strong>{{employer.currentProject|uppercase}}</strong>
+        </h3>
     </div>
 </div>
 
 
-
-    <hr>
-    <div class="show-answer">{{showAnswer}} <i ng-show="showAnswer" class="fa fa-handshake-o" aria-hidden="true"></i></div>
-    <hr>
-    <h1>All Employees</h1>
-    <input type="text" ng-model="searchSkills" placeholder="Search By Skills" />
-    <i type="button" class="fa fa-search" aria-hidden="true"></i>
+<button type="button" class="btn btn-success navbar-btn" ng-click="showAddOption()">Add New Project</button>
+<form ng-show="addNewProjectClicked" ng-submit="addProject()">
+    <div class="form-group">
+        <input type="type" class="form-control" placeholder="Project type" ng-model="title" />
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Project Description" ng-model="description" />
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Skils/Tech knowlege for the project" ng-model="skils" />
+    </div>
+    <button type="submit" class="btn btn-success navbar-btn" ng-click="showAddOption()">Create New Project</button>
+</form>
+<hr>
+<div class="show-answer">{{showAnswer}}
+    <i ng-show="showAnswer" class="fa fa-handshake-o" aria-hidden="true"></i>
+</div>
+<hr>
+<h1>All Employees</h1>
+<input type="text" ng-model="searchSkills" placeholder="Search By Skills" />
+<i type="button" class="fa fa-search" aria-hidden="true"></i>
 
 
 
@@ -34,7 +52,8 @@
         <hr>
         <span>{{employee.location}}</span>
         <br>
-        <span><strong>Skills : </strong>{{employee.skills}}</span>
+        <span>
+            <strong>Skills : </strong>{{employee.skills}}</span>
         <br>
 
         <button type="button" class="project-choose" ui-sref="employeesAll({showName:'Your New Project : Doing a movie app using a new language'})">I want you for my project</button>
