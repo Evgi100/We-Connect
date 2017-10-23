@@ -1,6 +1,7 @@
 
 *{box-sizing: border-box;
-text-align: center}
+text-align: center;
+font-family: 'Raleway', sans-serif;}
 
 /* //HOMEPAGE VIEW// */
 .nav {
@@ -111,13 +112,17 @@ EMPLOYERS SEE EMPLOYEE PROFIL */
 
 .all-employees{
   width : 33.33%;
-  height : 250px;
+  height : 350px;
   border : 3px solid #033346;
   float: left;
   padding : 15px;
   margin-top:20px;
+  text-align: center;
+  font-size: 20px;
 }
-
+.project-choose{
+  margin-top : 10px
+}
 .newProject{
   border : 3px solid #033346;
   font-size: 25px;
@@ -127,4 +132,10 @@ EMPLOYERS SEE EMPLOYEE PROFIL */
   text-align: center;
   line-height: 7;
   margin-bottom : 5px;
+}
+
+.show-answer{
+  font-size: 20px;
+  font-weight: bold;
+  color : #033346;
 }

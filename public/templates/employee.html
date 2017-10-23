@@ -11,7 +11,7 @@
 <body>
     <div class="row">
         <h1>Join Real Projects</h1>
-<br>
+        <br>
 
 
         <div class="newProject">{{showName}}
@@ -32,15 +32,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 project text-left" ng-repeat="project in projects |filter:{title:search} track by $index">
-                        <h3>{{project.title}} 
+                        <h3>{{project.title}}
                         </h3>
-                         <br>
+                        <br>
                         <span>{{project.description}}</span> <br><br>
-                      <span>skills:</span>  <button class="skils" ng-repeat="skill in project.skils">{{skill}}</button>
-                      <br><br>
-                      <span>Type: {{project.type}}</span>
+                        <span>skills:</span> <button class="skils" ng-repeat="skill in project.skils">{{skill}}</button>
                         <br><br>
-                        <button class="btn btn-success" type="button" ng-click="addMovies(movie)">Join The Project</button>
+                        <span>Type: {{project.type}}</span>
+                        <br><br>
+                        <button class="btn btn-success" type="button" ng-click="addMovies(movie); showme=true" ng-hide="showme">Join The Project</button>
+                        <i ng-show="showme" class="fa fa-check fa-3x" aria-hidden="true" ng-click="showme=false"></i>
                         <hr>
                     </div>
                 </div>
