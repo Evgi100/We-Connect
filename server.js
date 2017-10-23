@@ -161,7 +161,7 @@ app.get('/project/:projectId', function (req, res, next) {
     Project.findById(projectId, handler(res, next));
 });
 // Create new project and add it to employer allProjects array
-app.post('/project/employer/:employerId', function (req, res, next) {
+app.post('/projects/employer/:employerId', function (req, res, next) {
     let employerId = req.params.employerId;
     let project = new Project(req.body);
     project.save();

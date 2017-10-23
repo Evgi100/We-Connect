@@ -18,7 +18,6 @@
         <div class="newProject" ng-show="showName">{{showName}}
             <button type="button" class="btn btn-success" ui-sref="employersAll({showAnswer:'The Project was accepted'})">Accept</button>
             <button type="button" class="btn btn-danger" ui-sref="employersAll({showAnswer:'The Project was refused'})">Refuse</button>
-
         </div>
 
 
@@ -42,7 +41,7 @@
                         <br>
                         <br>
                         <span>skills:</span>
-                        <button class="skils" ng-repeat="skill in project.skils  ">{{skill}}</button>
+                        <button class="skils" ng-repeat="skill in project.skills">{{skill}}</button>
                         <br>
                         <br>
                         <span>Type: {{project.type}}</span>
