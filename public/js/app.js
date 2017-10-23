@@ -16,14 +16,22 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
             url: '/employees',
             templateUrl: 'templates/employee.html',
             controller: 'employeeCtrl',
-            params: { employParams: null }
+            // params: { employParams: null }
         })
-        // .state('employee', {
-        //     url: '/employee/:id',
-        //     templateUrl: '/templates/employee.html',
-        //     controller: 'employeeController',
-        //     params: { employParams: null }
-        // })   
+
+        
+        // .state('employees.showName', {
+        //     url: '/employees/:showName?',
+        //     templateUrl: 'templates/employee.html',
+        //     controller: 'employeeCtrl',
+        //     // params: { employParams: null }
+        // })
+        .state('employers.answer', {
+            url: '/employers/:showAnswer?',
+            templateUrl: '/templates/employers.html',
+            controller: 'employerController',
+            // params: { employParams: null }
+        })   
         // .state('employer', {
         //     url: '/employer/:id',
         //     templateUrl: '/templates/employer.html',
