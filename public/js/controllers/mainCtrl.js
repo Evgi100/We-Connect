@@ -1,6 +1,5 @@
 app.controller('mainCtrl', function($scope, employeeFact, employerFact, projectsFact) {
   //////////////DUMMY DATA SCRIPT////////////////////
-
   function dummydata(/*dummyProjectId*/) {
     // console.log('Heeeeeeeeeeeeeeeeeelooooooooooooooo');
     // employeeFact.addEmployee({
@@ -70,11 +69,24 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
       let projId = '59ee10b79cefc42d21158f22';
       projectsFact.addProjectEmployee(projId, empId);
 
+
     // projectsFact.addProjectEmployee();
   }
 
   dummydata();
 
   ////////////////END OF DUMMY DATA SCRIPT/////////////
+
+
+//EMPLOYER SIGN UP//
+
+
+//EMPLOYEE SIGN UP//
+
+
+
+
+
+
 
 });

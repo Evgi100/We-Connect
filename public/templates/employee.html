@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employee</title>
-</head>
-
 <body>
     <div class="row">
+
         <h1>Join Real Projects</h1>
+
+        <!-- <div ng-repeat="employee in employees track by $index">
+            <h3> Hi <strong>{{employee.username}}</strong> ! Welcome in WeConnect
+                <!-- <img class="employee-img" src="{{employee.image_url}}" /> -->
+            <!-- </h3> -->
+        
         <br>
         <input type="text" ng-model="searchSkills" placeholder="Search By Skils" />
         <i class="fa fa-search icon" aria-hidden="true"></i>
@@ -18,7 +15,6 @@
         <div class="newProject" ng-show="showName">{{showName}}
             <button type="button" class="btn btn-success" ui-sref="employersAll({showAnswer:'The Project was accepted'})">Accept</button>
             <button type="button" class="btn btn-danger" ui-sref="employersAll({showAnswer:'The Project was refused'})">Refuse</button>
-
         </div>
 
 
@@ -34,7 +30,8 @@
         <div class="all-projects">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 project text-left" ng-repeat="project in projects | filter:{type:search} track by $index">
+
+                    <div class="col-sm-12 project text-left" ng-repeat="project in projects |filter:{type:search} track by $index">
                         <h3>{{project.title}}
                         </h3>
                         <br>
@@ -42,7 +39,7 @@
                         <br>
                         <br>
                         <span>skills:</span>
-                        <button class="skils" ng-repeat="skill in project.skils  ">{{skill}}</button>
+                        <button class="skils" ng-repeat="skill in project.skills">{{skill}}</button>
                         <br>
                         <br>
                         <span>Type: {{project.type}}</span>
