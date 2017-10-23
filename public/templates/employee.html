@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employee</title>
-</head>
-
 <body>
     <div class="row">
+
         <h1>Join Real Projects</h1>
-        <br>
+
+        <!-- <div ng-repeat="employee in employees track by $index">
+            <h3> Hi <strong>{{employee.username}}</strong> ! Welcome in WeConnect
+                <!-- <img class="employee-img" src="{{employee.image_url}}" /> -->
+            <!-- </h3> -->
+        
 
 
         <div class="newProject" ng-show="showName">{{showName}}
@@ -33,7 +29,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 project text-left" ng-repeat="project in projects |filter:{type:search} track by $index">
-                        <h3>{{project.title}} 
+                        <h3>{{project.title}}
                         </h3>
                         <br>
                         <span>{{project.description}}</span> <br><br>
