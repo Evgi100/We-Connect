@@ -15,6 +15,44 @@ projectsFact.getProjec(id)
     });
 
 
-    $scope.showName=$stateParams.showName
+    $scope.showName = $stateParams.showName
+
+     $scope.employees = [];
+    console.log("hello")
+    
+        employeeFact.getEmployees()
+            .then(function (employer) {
+                $scope.employers = employer;
+                console.log($scope.employers)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+     
+            var employeeInfo = {
+                username: $rootScope.username,
+                location:$rootScope.location,
+                image_url: $rootScope.image,
+                skills: $rootScope.skills
+            }
+            console.log(employeeInfo);
+
+        employeeFact.addEmployee(employeeInfo)
+            .then(function (employee) {
+                $scope.employees = employee
+                console.log($scope.employees)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+            
+            // $scope.username = "";
+            // $scope.location = "";
+            // $scope.image = "";
+            // $scope.skills = "";
+            
+            // employeeFact.addEmployee(employeeInfo)
+                
+
 
 });
