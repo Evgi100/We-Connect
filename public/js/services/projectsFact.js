@@ -41,7 +41,7 @@ app.factory('projectFact', function ($http) {
         return $http.post('/projects', project)
             .then(function (response) {
                 return angular.copy(response.data);
-            });
+            });;
     };
     ////////////////////END OF DEV FUNCTIONS//////////////
     ///////////////////////////////END OF PROJECT FUNCTIONS////////////////////////
