@@ -12,8 +12,8 @@ const Employee = require('./models/employees.js');
 const Employer = require('./models/employers.js');
 const Project = require('./models/projects.js').Project;
 
-app.use(express.static('public'));
-app.use(express.static('node_modules'));
+app.use(express.static(__dirname +'/public'));
+app.use(express.static(__dirname +'/node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -26,9 +26,9 @@ app.use(bodyParser.urlencoded({
 
 
 //////////////////////////////ROUTES//////////////////////////////////////////
-app.all('*', function (req, res) {
-    res.sendFile(__dirname + '/public/index.html');
-});
+// app.all('*', function (req, res) {
+//     res.sendFile(__dirname + '/public/index.html');
+// });
 ///////////////////EMPLOYEE ROUTES///////////////////
 // Fetches all employees from the database
 app.get('/employees', function (req, res, next) {
@@ -88,10 +88,18 @@ app.get('/employee/:employeeId', function (req, res, next) {
 app.get('/employers', function (req, res, next) {
     Employer.find({}, handler(res, next));
 });
+
+
 // Adds an employer to the employers collection in the database
 app.post('/employers', function (req, res, next) {
-    Employer.create(req.body, handler(res, next));
+    Employer.create(req.body, function (err, employer) {
+        if (err) { return next(err) }
+        return res.send(employer);
+        res.send('POST!');
+    })
 });
+
+
 // Deletes an employer from the database
 app.delete('/employer/:employerId', function (req, res, next) {
     let employerId = req.params.employerId;
@@ -165,15 +173,15 @@ app.post('/project/employer/:employerId', function (req, res, next) {
     let employerId = req.params.employerId;
     let project = new Project(req.body);
     project.save();
-    let updateObj = {$push: {allProjects: project}};
-    Employer.findByIdAndUpdate(employerId, updateObj, {new: true}, handler(res, next));
+    let updateObj = { $push: { allProjects: project } };
+    Employer.findByIdAndUpdate(employerId, updateObj, { new: true }, handler(res, next));
 });
 // Add project to employee allProjects array
 app.post('/project/employee/:employeeId', function (req, res, next) {
     let employeeId = req.params.employeeId;
     let project = req.body;
-    let updateObj = {$push: {allProjects: project}};
-    Employer.findByIdAndUpdate(employeeId, updateObj, {new: true}, handler(res, next));
+    let updateObj = { $push: { allProjects: project } };
+    Employer.findByIdAndUpdate(employeeId, updateObj, { new: true }, handler(res, next));
 });
 
 /////////////////DEV ROUTES/////////
@@ -214,6 +222,7 @@ function handler(res, next) {
         if (err) {
             return next(err);
         }
+        console.log(data)
         res.send(data);
     };
 }
