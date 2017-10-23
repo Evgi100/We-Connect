@@ -33,8 +33,18 @@ app.factory('projectFact', function ($http) {
             });
     };
     let addProjectEmployer = function(project, id) {
-        http.post('/project/employer/' + id)
-    };
+    return http.post('/projects/employer/'+id, project)
+      .then(function (response) {
+          return angular.copy(response.data);
+        });
+};
+// Adds a new project to the employee allProjects array once he accepts
+let addProjectEmployee = function(project, id) {
+    return http.post('/projects/employee/'+id, project)
+      .then(function (response) {
+          return angular.copy(response.data);
+        });
+};
     //////////////////////DEV FUNCTIONS//////////////////
     // Adds employee to database after signup
     let addProject = function (project) {
@@ -51,7 +61,9 @@ app.factory('projectFact', function ($http) {
         addProject: addProject,
         getProject: getProject,
         editProject: editProject,
-        removeProject: removeProject
+        removeProject: removeProject,
+        addProjectEmployer: addProjectEmployer,
+        addProjectEmployee:  addProjectEmployee
     };
 
 });
