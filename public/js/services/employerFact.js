@@ -9,7 +9,7 @@ app.factory('employerFact', function ($http) {
         // { img: "http://www.cgmeetup.net/forums/uploads/gallery/album_1392/med_gallery_646_1392_48130.jpg", title: "Beauty and the Beast", year: 2016, descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so I would think, given how breath-takingly pretty she is. I mean wow. Rumor has it she'll whip out a wand and turn Gaston into a toad.", price: 3 }
     ];
 
-    
+
     /////////////////////////////EMPLOYER FUNCTIONS//////////////////////////////
     let getEmployers = function () {
         return $http.get('/employers')
@@ -18,12 +18,15 @@ app.factory('employerFact', function ($http) {
             });
     };
     // Adds employee to database after signup
-    let addEmployer = function (employer) {
+    employerFact.addEmployer = function (employer) {
         return $http.post('/employers', employer)
             .then(function (response) {
                 return angular.copy(response.data);
             });
     };
+
+
+    
     // Gets individual employee object
     let getEmployer = function (id) {
         return $http.get('/employer/' + id)
