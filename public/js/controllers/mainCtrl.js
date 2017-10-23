@@ -73,7 +73,7 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
     // projectsFact.addProjectEmployee();
   }
 
-  dummydata();
+  // dummydata();
 
   ////////////////END OF DUMMY DATA SCRIPT/////////////
 
