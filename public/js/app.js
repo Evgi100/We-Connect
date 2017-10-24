@@ -101,6 +101,20 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
               // };
             }
         })
+        .state('employer-signin', {
+            url: '/employer-signin',
+            templateUrl: '/templates/employer-signin.html'
+            // controller: function() {
+            //
+            // }
+        })
+        .state('employee-signin', {
+            url: '/employee-signin',
+            templateUrl: '/templates/employee-signin.html'
+            // controller: function() {
+            //
+            // }
+        });
 
     $urlRouterProvider.otherwise('/home');
     // $locationProvider.html5Mode(true);
