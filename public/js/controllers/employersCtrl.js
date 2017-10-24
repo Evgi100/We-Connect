@@ -5,7 +5,7 @@ app.controller('employersCtrl', function($rootScope, $scope, employerFact, $loca
     $scope.addNewProjectClicked = !$scope.addNewProjectClicked;
   }
 
-  // $scope.employees = employerFact.allEmployees;
+  $scope.employees = employerFact.allEmployees;
 
   $scope.showAnswer = $stateParams.showAnswer;
 
@@ -38,6 +38,7 @@ app.controller('employersCtrl', function($rootScope, $scope, employerFact, $loca
     alert("Hello, i am the add project function")
     var project = {
       title: $scope.title,
+      type:$scope.type,
       date: $scope.date,
       description: $scope.description,
       skills: $scope.skillsArray,
