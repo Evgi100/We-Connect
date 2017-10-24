@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
+const expressSession = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 mongoose.connect('mongodb://localhost/weconnect', function () {
     console.log('WeConnect connection established!!!');
@@ -19,6 +22,33 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 //////////////////////////END OF DEPENDENCIES/////////////////////////////////
+///////////////USER AUTHEN MIDDLEWARE/////////////////////
+app.use(expressSession({
+    secret: 'thisIsASecret',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function (user, done) {
+    done(null, user.username);
+});
+
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
+passport.use(new LocalStrategy(function (username, password, done) {
+    if ((username === 'john') && (password === 'password')) {
+        return done(null, {
+            username: username,
+            id: 1
+        });
+    } else {
+        return done(null, false);
+    }
+}));
+///////////////END OF USER AUTHEN MIDDLEWARE/////////////////////
 
 
 
@@ -229,6 +259,36 @@ app.all('*', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 //////////////////END OF DEV ROUTES///////////
+
+/////////////USER AUTHEN ROUTES//////////////
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/success',
+    failureRedirect: '/login'
+    // session: false
+}));
+
+// app.post('/login', function (req, res) {
+//     console.log(req.body);
+//     res.send(req.body);
+// });
+
+app.get('/success', function (req, res) {
+    if (req.isAuthenticated()) {
+        res.send('Hey, ' + req.user + ', hello from the server!');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.get('/login', function (req, res) {
+    res.sendFile(__dirname + '/public/login.html');
+});
+
+app.get('/logout', function (req, res) {
+    req.logout();
+    res.send('Logged out!');
+});
+////////////////END OF USER AUTHEN ROUTES////
 
 ///////////////////END OF PROJECT ROUTES////////////
 ////////////////////////////END OF ROUTES/////////////////////////////////////
