@@ -16,7 +16,8 @@
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
-    "mongoose": "^4.12.4"
+    "mongoose": "^4.12.4",
+    "ngstorage": "^0.3.11"
   },
   "repository": {
     "type": "git",

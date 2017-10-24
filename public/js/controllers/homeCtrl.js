@@ -10,6 +10,7 @@ app.controller('homeCtrl', function($rootScope, $scope, employerFact, employeeFa
     console.log('hey');
     $state.go("employees");
 
+    $scope.addEmployee();
   };
 
 

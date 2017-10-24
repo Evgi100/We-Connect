@@ -1,56 +1,66 @@
-app.factory('employeeFact', function ($http) {
- 
+app.factory('employeeFact', function($http) {
 
-    /////////////////////////////EMPLOYEE FUNCTIONS/////////////////////////////
-    // Returns employees array with objects
-    let getEmployees = function () {
-        return $http.get('/employees')
-            .then(function (response) {
-                return angular.copy(response.data);
-            });
-    };
-    // Adds employee to database after signup
-    let addEmployee = function (employee) {
-        return $http.post('/employees', employee)
-            .then(function (response) {
-                return angular.copy(response.data);
-            });
-    };
 
-    // Gets individual employee object
-    let getEmployee = function (id) {
-        return $http.get('/employee/' + id)
-            .then(function (response) {
-                return angular.copy(response.data);
-            });
-    };
-    // Edit the information of an employee
+  /////////////////////////////EMPLOYEE FUNCTIONS/////////////////////////////
+  // Returns employees array with objects
+  let getEmployees = function() {
+    return $http.get('/employees')
+      .then(function(response) {
+        return angular.copy(response.data);
+      });
+  };
+  // Adds employee to database after signup
+  let addEmployee = function(employee) {
+    return $http.post('/employees', employee)
+      .then(function(response) {
+        return angular.copy(response.data);
+      });
+  };
 
-    // Further details below
-    /* The data param in the function expects an object with the key and value
-    of what needs to be changed according the specifications defined in the schema
-    */
-    let editEmployee = function (data, id) {
-        return $http.put('/employee/' + id + '/update', data)
-            .then(function (response) {
-                return angular.copy(response.data);
-            });
-    };
-    //Remove an employee
-    let removeEmployee = function (id) {
-        return $http.get('/employee/' + id)
-            .then(function (response) {
-                return angular.copy(response.data);
-            });
-    };
-    /////////////////////////////END OF EMPLOYEE FUNCTIONS///////////////////////
+  // Gets individual employee object
+  let getEmployee = function(id) {
+    return $http.get('/employee/' + id)
+      .then(function(response) {
+        return angular.copy(response.data);
+      });
+  };
+  // Edit the information of an employee
 
-    return {
-        getEmployees : getEmployees,
-        addEmployee: addEmployee,
-        getEmployee: getEmployee,
-        editEmployee: editEmployee,
-        removeEmployee: removeEmployee
-    };
+  // Further details below
+  /* The data param in the function expects an object with the key and value
+  of what needs to be changed according the specifications defined in the schema
+  */
+  let editEmployee = function(data, id) {
+    return $http.put('/employee/' + id + '/update', data)
+      .then(function(response) {
+        return angular.copy(response.data);
+      });
+  };
+  //Remove an employee
+  let removeEmployee = function(id) {
+    return $http.get('/employee/' + id)
+      .then(function(response) {
+        return angular.copy(response.data);
+      });
+  };
+
+  ///////////////////DEV FUNCTIONS////////////////
+  let emptyEmployees = function() {
+    return $http.delete('/employees')
+      .then(function(response) {
+        return angular.copy(response.data);
+      });
+  };
+  ///////////////////END OF DEV FUNCTIONS/////////
+  /////////////////////////////END OF EMPLOYEE FUNCTIONS///////////////////////
+
+  return {
+    getEmployees: getEmployees,
+    addEmployee: addEmployee,
+    getEmployee: getEmployee,
+    editEmployee: editEmployee,
+    removeEmployee: removeEmployee,
+    emptyEmployees: emptyEmployees
+  };
 
 });

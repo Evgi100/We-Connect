@@ -46,8 +46,8 @@
 
 
 
-                <button type="button" class="btn btn-default navbar-btn" ng-click="showme=true" ng-hide="showme">Employers Sign Up</button>
-                <form ng-show="showme" ng-submit="addEmployers()">
+                <button type="button" class="btn btn-default navbar-btn" ng-click="showme=true" ng-hide="showme" ui-sref="employer-signup">Employers Sign Up</button>
+                <!-- <form ng-show="showme" ng-submit="addEmployers()">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Name" ng-model="name" />
                     </div>
@@ -58,7 +58,7 @@
                         <input type="text" class="form-control" placeholder="Projects" ng-model="project" />
                     </div>
                     <button type="submit" class="btn btn-signup btn-default navbar-btn" ng-click="showme=false">Sign Up</button>
-                </form>
+                </form> -->
             </div>
             <div class="employees">
                 <h2>Employee</h2>
@@ -69,8 +69,8 @@
                 </ul>
 
 
-                <button type="button" class="btn btn-default navbar-btn" ng-click="show=true" ng-hide="show">Employees Sign Up</button>
-                <form ng-show="show" ng-submit="addEmployee()">
+                <button type="button" class="btn btn-default navbar-btn" ng-click="show=true" ng-hide="show" ui-sref="employee-signup">Employees Sign Up</button>
+                <!-- <form ng-show="show" ng-submit="addEmployee()">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Username" ng-model="username" />
                     </div>
@@ -84,7 +84,7 @@
                         <input type="text" class="form-control" placeholder="Skills" ng-model="skills" />
                     </div>
                     <button type="submit" class="btn btn-signup btn-default navbar-btn" ng-click="changeView()">Sign Up</button>
-                </form>
+                </form> -->
 
             </div>
         </div>

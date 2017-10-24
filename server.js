@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/weconnect', function () {
     console.log('WeConnect connection established!!!');
@@ -196,6 +196,35 @@ app.post('/projects', function (req, res, next) {
       res.send(project);
     });
 });
+
+app.delete('/employers', function(req, res, next) {
+  // Employer.find({}, function(err, employers) {
+  //   employers.remove();
+  //   res.send(employers);
+  // });
+  mongoose.connection.db.dropCollection('employers', function(err, employers) {
+    res.send(employers);
+  });
+});
+app.delete('/employees', function(req, res, next) {
+  // Employee.find({}, function(err, employees) {
+  //   employees.remove();
+  //   res.send(employees);
+  // });
+  mongoose.connection.db.dropCollection('employees', function(err, employees) {
+    res.send(employees);
+  });
+});
+app.delete('/projects', function(req, res, next) {
+  // Project.find({}, function(err, projects) {
+  //   projects.remove();
+  //   res.send(projects);
+  // });
+  mongoose.connection.db.dropCollection('projects', function(err, projects) {
+    res.send(projects);
+  });
+});
+
 app.all('*', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });

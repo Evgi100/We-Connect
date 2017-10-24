@@ -3,41 +3,39 @@ const Schema = mongoose.Schema;
 
 // const projectSchema = require('./models/projects.js').projectSchema;
 const imageSchema = new Schema({
-    url: String,
-    title: String,
-    desc: String
+  url: String,
+  title: String,
+  desc: String
 });
 
 
 const projectSchema = new Schema({
-    title: String,
-    type: String,
-    images: [imageSchema],
-    description: String,
-    // currentProjects: [String],
-    // finishedProjects: [String],
-    dateJoined : Date,
-    skills : [String]
+  title: String,
+  type: String,
+  images: [imageSchema],
+  description: String,
+  // currentProjects: [String],
+  // finishedProjects: [String],
+  dateJoined: Date,
+  skills: [String]
 });
 
 
 // const companySchema = new Schema({});
 
 const employerSchema = new Schema({
-    username: String,
-    name: {
-        firstName: String,
-        lastName: String
-    },
-    comapanyName : String,
-    location : String,
-    image_url: String,
-    description: String,
-    // currentProjects: [String],
-    // finishedProjects: [String],
-    allProjects: [projectSchema],
-    currentProject : String,
-    dateJoined : Date,
+  // _id: { type: String, required: true },
+  username: String,
+  name: String,
+  comapanyName: String,
+  location: String,
+  image_url: String,
+  description: String,
+  // currentProjects: [String],
+  // finishedProjects: [String],
+  allProjects: [projectSchema],
+  currentProject: String,
+  dateJoined: Date,
 });
 
 const Employer = mongoose.model('Employer', employerSchema);

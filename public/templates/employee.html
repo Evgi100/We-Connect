@@ -7,7 +7,7 @@
             <h3> Hi <strong>{{employee.username}}</strong> ! Welcome in WeConnect
                 <!-- <img class="employee-img" src="{{employee.image_url}}" /> -->
             <!-- </h3> -->
-        
+
         <br>
         <input type="text" ng-model="searchSkills" placeholder="Search By Skils" />
         <i class="fa fa-search icon" aria-hidden="true"></i>
@@ -45,7 +45,7 @@
                         <span>Type: {{project.type}}</span>
                         <br>
                         <br>
-                        <button class="btn btn-success" type="button" ng-click="addMovies(movie); showme=true" ng-hide="showme">Join The Project</button>
+                        <button class="btn btn-success" type="button" ng-click="addProject(); showme=true" ng-hide="showme">Join The Project</button>
                         <i ng-show="showme" class="fa fa-check fa-3x" aria-hidden="true" ng-click="showme=false"></i>
                         <hr class="employee-hr">
                     </div>

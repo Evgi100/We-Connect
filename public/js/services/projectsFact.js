@@ -56,6 +56,12 @@ app.factory('projectsFact', function($http) {
         return angular.copy(response.data);
       });
   };
+  let emptyProjects = function() {
+    return $http.delete('/projects')
+    .then(function(response) {
+      return angular.copy(response.data);
+    });
+  };
   ////////////////////END OF DEV FUNCTIONS//////////////
   ///////////////////////////////END OF PROJECT FUNCTIONS////////////////////////
 
@@ -66,7 +72,8 @@ app.factory('projectsFact', function($http) {
     editProject: editProject,
     removeProject: removeProject,
     addProjectEmployer: addProjectEmployer,
-    addProjectEmployee: addProjectEmployee
+    addProjectEmployee: addProjectEmployee,
+    emptyProjects: emptyProjects
   };
 
 });
