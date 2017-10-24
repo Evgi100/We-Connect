@@ -17,7 +17,10 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "mongoose": "^4.12.4",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "express-session": "^1.15.6",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "repository": {
     "type": "git",
