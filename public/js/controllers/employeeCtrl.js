@@ -57,19 +57,15 @@ app.controller('employeeCtrl', function($scope, $stateParams, $location, project
 
 
 // EVEGENY AND LISE WORK ON THIS IM TOO TIRED
-    $scope.addProject = function() {
-      projectsFact.addProjectEmployee()
+    $scope.addProject = function(index) {
+      var id = $scope.projects[index]._id
+      alert(id)
+      var employeeId = $scope.employers[0]._id
+      alert(employeeId)
+      projectsFact.addProjectEmployee(id,employeeId)
     };
 
 
-
-
-  // $scope.username = "";
-  // $scope.location = "";
-  // $scope.image = "";
-  // $scope.skills = "";
-
-  // employeeFact.addEmployee(employeeInfo)
 
 
 

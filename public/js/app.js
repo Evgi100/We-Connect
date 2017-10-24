@@ -45,7 +45,7 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
                 console.log(employerInfo);
                 employerFact.addEmployer(employerInfo)
                   .then(function(employer) {
-                    // $scope.employers = employer
+                    $scope.employers = employer
                     console.log($scope.employers);
                   })
                   .catch(function(error) {

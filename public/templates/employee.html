@@ -3,10 +3,18 @@
 
         <h1>Join Real Projects</h1>
 
-        <!-- <div ng-repeat="employee in employees track by $index">
+        <div ng-repeat="employer in employers | limitTo : 1">
+            <h3> Hi
+                  <strong>{{employer.username}}</strong> ! Welcome in WeConnect
+                  <img class="employee-img" src="{{employer.image_url}}" />
+              </h3>
+          
+          </div>
+        <div ng-repeat="employee in employees| limitTo : 1">
             <h3> Hi <strong>{{employee.username}}</strong> ! Welcome in WeConnect
-                <!-- <img class="employee-img" src="{{employee.image_url}}" /> -->
-            <!-- </h3> -->
+                <img class="employee-img" src="{{employee.image_url}}" />
+            </h3>
+        </div>
 
         <br>
         <input type="text" ng-model="searchSkills" placeholder="Search By Skils" />
@@ -45,7 +53,7 @@
                         <span>Type: {{project.type}}</span>
                         <br>
                         <br>
-                        <button class="btn btn-success" type="button" ng-click="addProject(); showme=true" ng-hide="showme">Join The Project</button>
+                        <button class="btn btn-success" type="button" ng-click="addProject($index); showme=true" ng-hide="showme">Join The Project</button>
                         <i ng-show="showme" class="fa fa-check fa-3x" aria-hidden="true" ng-click="showme=false"></i>
                         <hr class="employee-hr">
                     </div>
