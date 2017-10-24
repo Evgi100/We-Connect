@@ -36,6 +36,10 @@ app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $loc
     $scope.addNewProjectClicked = !$scope.addNewProjectClicked;
   }
 
+
+  // $scope.employees = employerFact.allEmployees;
+
+
   $scope.showAnswer = $stateParams.showAnswer;
 
   $scope.skillsArray = [];
@@ -68,6 +72,7 @@ app.controller('employersCtrl', function ($rootScope, $scope, employerFact, $loc
     // alert("Hello, i am the add project function")
     var project = {
       title: $scope.title,
+      type:$scope.type,
       date: $scope.date,
       description: $scope.description,
       skills: $scope.skillsArray,
