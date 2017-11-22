@@ -13,8 +13,8 @@ app.config(['$stateProvider', '$urlRouterProvider','$locationProvider', function
             templateUrl: 'templates/employers.html',
             controller : "employersCtrl",
         })
-        .state('employees', {
-            url: '/employees',
+        .state('employee', {
+            url: '/employee',
             templateUrl: 'templates/employee.html',
             controller: 'employeeCtrl',
         })

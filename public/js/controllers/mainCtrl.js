@@ -60,7 +60,6 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
         })
         .then(function(response) {
           $scope.customEmployeeId = response._id;
-          console.log($scope.customEmployeeId);
         })
         .catch(function(error) {
           console.log(error);
@@ -82,7 +81,6 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
         })
         .then(function(response) {
           $scope.customEmployerId = response._id;
-          console.log($scope.customEmployerId);
         })
         .catch(function(error) {
           console.log(error);
@@ -97,13 +95,13 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
       _addDummyProjects();
 
 
-      function _addDummyEmployees() {
-        for (let i = 0, N = allEmployees.length; i < N; i++) {
-          let employee = allEmployees[i];
-          employeeFact.addEmployee(employee);
-        }
-      }
-      _addDummyEmployees();
+      // function _addDummyEmployees() {
+      //   for (let i = 0, N = allEmployees.length; i < N; i++) {
+      //     let employee = allEmployees[i];
+      //     employeeFact.addEmployee(employee);
+      //   }
+      // }
+      // _addDummyEmployees();
     }
 
     function emptyDatabase() {
@@ -131,7 +129,7 @@ app.controller('mainCtrl', function($scope, employeeFact, employerFact, projects
   ////////////////////////////////
 
   ////UNCOMMENT TO HARD INIT//////
-  // initDatabase();
+  //  initDatabase();
   ////////////////////////////////
 
 

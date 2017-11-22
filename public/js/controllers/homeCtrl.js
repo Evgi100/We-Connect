@@ -1,5 +1,8 @@
 app.controller('homeCtrl', function($rootScope, $scope, employerFact, employeeFact, $state) {
 
+  $scope.alert = function() {
+    alert("Please contact us at evgeni.shapira@gmail.com regarding becoming member employer at weConnect");
+  }
   $scope.changeView = function() {
     $rootScope.username = $scope.username;
     $rootScope.location = $scope.location;
@@ -7,7 +10,6 @@ app.controller('homeCtrl', function($rootScope, $scope, employerFact, employeeFa
     $rootScope.skills = $scope.skills;
 
     // console.log($scope.username,$scope.location,$scope.image,$scope.skills)
-    console.log('hey');
     $state.go("employees");
 
     $scope.addEmployee();
