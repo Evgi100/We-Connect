@@ -56,7 +56,7 @@ app.controller('employeeCtrl', function($scope, $stateParams, $location, project
 // EVEGENY AND LISE WORK ON THIS IM TOO TIRED
     $scope.addProject = function(index) {
       var id = $scope.projects[index]._id
-      alert("Your reqest to join the project will be passed to the employer amd you will recieve answer shortlys")
+      alert("Your reqest to join the project will be passed to the employer and you will recieve answer shortly")
       var employeeId = $scope.employers[0]._id
       projectsFact.addProjectEmployee(id,employeeId)
     };
